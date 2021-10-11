@@ -187,9 +187,10 @@ namespace FinCalc
                 chart_results.Series[0].Points.AddY(over_pay);
                 chart_results.Series[0].Points[1].LegendText = "Переплата";
                 lbl_results_procent.Text = over_pay.ToString();
-                lbl_results_all.Text = (credit_sum+over_pay).ToString();
+                lbl_results_all.Text = (credit_sum + over_pay).ToString();
                 pnl_results.Visible = true;
             }
+            else MessageBox.Show("Проверьте корректность введенных данных");
         }
     }
 }

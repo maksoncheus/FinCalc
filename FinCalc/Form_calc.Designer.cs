@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.txt_credit_sum = new System.Windows.Forms.TextBox();
             this.lbl_credit_sum_desc = new System.Windows.Forms.Label();
             this.lbl_procent_desc = new System.Windows.Forms.Label();
@@ -77,7 +77,7 @@
             // 
             this.lbl_procent_desc.AutoSize = true;
             this.lbl_procent_desc.Font = new System.Drawing.Font("PMingLiU-ExtB", 9F);
-            this.lbl_procent_desc.Location = new System.Drawing.Point(272, 19);
+            this.lbl_procent_desc.Location = new System.Drawing.Point(255, 19);
             this.lbl_procent_desc.Name = "lbl_procent_desc";
             this.lbl_procent_desc.Size = new System.Drawing.Size(109, 15);
             this.lbl_procent_desc.TabIndex = 3;
@@ -86,7 +86,7 @@
             // txt_procent
             // 
             this.txt_procent.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txt_procent.Location = new System.Drawing.Point(275, 32);
+            this.txt_procent.Location = new System.Drawing.Point(258, 32);
             this.txt_procent.MaxLength = 5;
             this.txt_procent.Name = "txt_procent";
             this.txt_procent.Size = new System.Drawing.Size(170, 22);
@@ -98,7 +98,7 @@
             // 
             this.txt_duration_desc.AutoSize = true;
             this.txt_duration_desc.Font = new System.Drawing.Font("PMingLiU-ExtB", 9F);
-            this.txt_duration_desc.Location = new System.Drawing.Point(526, 19);
+            this.txt_duration_desc.Location = new System.Drawing.Point(497, 19);
             this.txt_duration_desc.Name = "txt_duration_desc";
             this.txt_duration_desc.Size = new System.Drawing.Size(113, 15);
             this.txt_duration_desc.TabIndex = 5;
@@ -107,7 +107,7 @@
             // txt_duration
             // 
             this.txt_duration.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txt_duration.Location = new System.Drawing.Point(529, 32);
+            this.txt_duration.Location = new System.Drawing.Point(500, 32);
             this.txt_duration.MaxLength = 2;
             this.txt_duration.Name = "txt_duration";
             this.txt_duration.Size = new System.Drawing.Size(170, 22);
@@ -124,7 +124,7 @@
             this.cmb_duration.Items.AddRange(new object[] {
             "Месяц",
             "Год"});
-            this.cmb_duration.Location = new System.Drawing.Point(721, 32);
+            this.cmb_duration.Location = new System.Drawing.Point(692, 32);
             this.cmb_duration.Name = "cmb_duration";
             this.cmb_duration.Size = new System.Drawing.Size(138, 24);
             this.cmb_duration.TabIndex = 6;
@@ -160,7 +160,7 @@
             "Ежемесячно",
             "Ежеквартально",
             "Ежегодно"});
-            this.cmb_periods.Location = new System.Drawing.Point(275, 88);
+            this.cmb_periods.Location = new System.Drawing.Point(258, 88);
             this.cmb_periods.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_periods.Name = "cmb_periods";
             this.cmb_periods.Size = new System.Drawing.Size(170, 24);
@@ -170,7 +170,7 @@
             // 
             this.lbl_periods_desc.AutoSize = true;
             this.lbl_periods_desc.Font = new System.Drawing.Font("PMingLiU-ExtB", 9F);
-            this.lbl_periods_desc.Location = new System.Drawing.Point(272, 74);
+            this.lbl_periods_desc.Location = new System.Drawing.Point(255, 74);
             this.lbl_periods_desc.Name = "lbl_periods_desc";
             this.lbl_periods_desc.Size = new System.Drawing.Size(144, 15);
             this.lbl_periods_desc.TabIndex = 10;
@@ -178,7 +178,7 @@
             // 
             // btn_calculation
             // 
-            this.btn_calculation.Location = new System.Drawing.Point(529, 86);
+            this.btn_calculation.Location = new System.Drawing.Point(500, 86);
             this.btn_calculation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_calculation.Name = "btn_calculation";
             this.btn_calculation.Size = new System.Drawing.Size(330, 23);
@@ -248,10 +248,10 @@
             this.chart_results.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.chart_results.BorderSkin.BackColor = System.Drawing.Color.Transparent;
             this.chart_results.BorderSkin.PageColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart_results.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_results.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart_results.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart_results.Legends.Add(legend5);
             this.chart_results.Location = new System.Drawing.Point(5, 27);
             this.chart_results.Name = "chart_results";
             this.chart_results.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
