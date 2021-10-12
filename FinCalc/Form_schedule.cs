@@ -19,5 +19,10 @@ namespace FinCalc
             dgv.ReadOnly = true;
             dgv.Show();
         }
+
+        private void Form_schedule_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

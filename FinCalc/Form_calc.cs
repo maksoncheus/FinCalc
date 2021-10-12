@@ -185,30 +185,33 @@ namespace FinCalc
                 }
                 double payment;
                 int i = 1;
+                double all_over = 0;
                 while (ostatok > double.Epsilon)
                 {
-                    payment = Math.Round(((double)credit_sum / all_periods) + ostatok * ((double)procent / annual_period), 2);
+                    payment = ((double)credit_sum / all_periods) + ostatok * ((double)procent / annual_period);
                     all_pays += payment;
-                    over_pay = Math.Round(over_pay + ostatok * ((double)procent / annual_period), 2);
-                    ostatok = Math.Round(ostatok - payment + ostatok * ((double)procent / annual_period), 2);
+                    over_pay = ostatok * ((double)procent / annual_period);
+                    all_over += over_pay;
+                    ostatok = ostatok - payment + ostatok * ((double)procent / annual_period);
                     pay_schedule.Rows.Add(
                         new string[5] {
                             date_credit.Value.AddMonths(addMonth * i++).ToString(),
                             Math.Round(payment,2).ToString(),
-                            Math.Round(ostatok * ((double)procent / annual_period),2).ToString(),
+                            Math.Round(over_pay,2).ToString(),
                             Math.Round((double)credit_sum / all_periods,2).ToString(),
                             Math.Round(ostatok,2).ToString()
                         }
                      );
                 }
+                MessageBox.Show(i.ToString());
                 chart_results.Series.Add("Results");
                 chart_results.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
                 chart_results.Series[0].Points.AddY((double)credit_sum);
                 chart_results.Series[0].Points[0].LegendText = "Тело кредита";
-                chart_results.Series[0].Points.AddY(over_pay);
+                chart_results.Series[0].Points.AddY(Math.Round(over_pay,2));
                 chart_results.Series[0].Points[1].LegendText = "Переплата";
-                lbl_results_procent.Text = over_pay.ToString();
-                lbl_results_all.Text = (credit_sum + over_pay).ToString();
+                lbl_results_procent.Text = Math.Round(over_pay, 2).ToString();
+                lbl_results_all.Text = (credit_sum + Math.Round(over_pay, 2)).ToString();
                 pnl_results.Visible = true;
             }
             else MessageBox.Show("Проверьте корректность введенных данных");

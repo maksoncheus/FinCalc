@@ -40,6 +40,7 @@ namespace FinCalc
             this.MaximizeBox = false;
             this.Name = "Form_schedule";
             this.Text = "Form_schedule";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_schedule_FormClosed);
             this.ResumeLayout(false);
 
         }
