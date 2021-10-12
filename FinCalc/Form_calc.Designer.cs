@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.txt_credit_sum = new System.Windows.Forms.TextBox();
             this.lbl_credit_sum_desc = new System.Windows.Forms.Label();
             this.lbl_procent_desc = new System.Windows.Forms.Label();
@@ -48,6 +48,7 @@
             this.lbl_results_all_desc = new System.Windows.Forms.Label();
             this.lbl_results_procent_desc = new System.Windows.Forms.Label();
             this.chart_results = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btn_schedule = new System.Windows.Forms.Button();
             this.pnl_results.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_results)).BeginInit();
             this.SuspendLayout();
@@ -191,6 +192,7 @@
             // 
             this.pnl_results.BackColor = System.Drawing.Color.White;
             this.pnl_results.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_results.Controls.Add(this.btn_schedule);
             this.pnl_results.Controls.Add(this.lbl_results_all);
             this.pnl_results.Controls.Add(this.lbl_results_procent);
             this.pnl_results.Controls.Add(this.lbl_results_all_desc);
@@ -248,16 +250,26 @@
             this.chart_results.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.chart_results.BorderSkin.BackColor = System.Drawing.Color.Transparent;
             this.chart_results.BorderSkin.PageColor = System.Drawing.Color.Transparent;
-            chartArea5.Name = "ChartArea1";
-            this.chart_results.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_results.Legends.Add(legend5);
+            chartArea6.Name = "ChartArea1";
+            this.chart_results.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart_results.Legends.Add(legend6);
             this.chart_results.Location = new System.Drawing.Point(5, 27);
             this.chart_results.Name = "chart_results";
             this.chart_results.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             this.chart_results.Size = new System.Drawing.Size(364, 300);
             this.chart_results.TabIndex = 0;
             this.chart_results.Text = "chart1";
+            // 
+            // btn_schedule
+            // 
+            this.btn_schedule.Location = new System.Drawing.Point(702, 3);
+            this.btn_schedule.Name = "btn_schedule";
+            this.btn_schedule.Size = new System.Drawing.Size(140, 34);
+            this.btn_schedule.TabIndex = 5;
+            this.btn_schedule.Text = "График платежей";
+            this.btn_schedule.UseVisualStyleBackColor = true;
+            this.btn_schedule.Click += new System.EventHandler(this.btn_schedule_Click);
             // 
             // Form_calc
             // 
@@ -310,5 +322,6 @@
         private System.Windows.Forms.Label lbl_results_all_desc;
         private System.Windows.Forms.Label lbl_results_procent_desc;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_results;
+        private System.Windows.Forms.Button btn_schedule;
     }
 }

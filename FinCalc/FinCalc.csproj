@@ -53,10 +53,19 @@
     <Compile Include="Form_calc.Designer.cs">
       <DependentUpon>Form_calc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_schedule.Designer.cs">
+      <DependentUpon>Form_schedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_calc.resx">
       <DependentUpon>Form_calc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_schedule.resx">
+      <DependentUpon>Form_schedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

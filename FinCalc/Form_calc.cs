@@ -15,7 +15,9 @@ namespace FinCalc
     public partial class Form_calc : Form
     {
         int all_periods;
+        int addMonth = 0;
         int annual_period = 12;
+        DataGridView pay_schedule;
         string[] duration = new string[2] { "Месяц", "Год" };
 
         public Form_calc()
@@ -82,15 +84,12 @@ namespace FinCalc
                 cmb_duration.Enabled = true;
                 if (cmb_duration.SelectedIndex == -1)
                     cmb_duration.SelectedIndex = 0;
-                cmb_periods.Enabled = true;
-                if (cmb_periods.SelectedIndex == -1)
-                    cmb_periods.SelectedIndex = 0;
             }
             else
             {
                 cmb_duration.Enabled = false;
                 cmb_periods.Enabled = false;
-                cmb_periods.SelectedIndex = -1;
+                cmb_periods.SelectedIndex = 1;
                 cmb_duration.SelectedIndex = -1;
             }
         }
@@ -98,7 +97,15 @@ namespace FinCalc
         public bool Check()
         {
             if (txt_credit_sum.TextLength > 0 && txt_duration.TextLength > 0 && txt_procent.TextLength > 0)
+            {
+                pay_schedule = new DataGridView();
+                pay_schedule.Columns.Add("DateColumn", "Date");
+                pay_schedule.Columns.Add("PaymentColumn", "Payment");
+                pay_schedule.Columns.Add("OverpayColumn", "Overpay");
+                pay_schedule.Columns.Add("CreditColumn", "CreditBody");
+                pay_schedule.Columns.Add("RemainderColumn", "Remain");
                 return true;
+            }
             else return false;
         }
 
@@ -132,6 +139,7 @@ namespace FinCalc
             if (Check())
             {
                 chart_results.Series.Clear();
+                
                 double all_pays = 0;
                 double over_pay = 0;
                 int credit_sum = Int32.Parse(txt_credit_sum.Text);
@@ -157,28 +165,41 @@ namespace FinCalc
                     case 0:
                         {
                             annual_period = 12;
+                            addMonth = 1;
                             break;
                         }
                     case 1:
                         {
                             all_periods /= 3;
                             annual_period = 4;
+                            addMonth = 3;
                             break;
                         }
                     case 2:
                         {
                             all_periods /= 12;
                             annual_period = 1;
+                            addMonth = 12;
                             break;
                         }
                 }
                 double payment;
+                int i = 1;
                 while (ostatok > double.Epsilon)
                 {
                     payment = Math.Round(((double)credit_sum / all_periods) + ostatok * ((double)procent / annual_period), 2);
                     all_pays += payment;
                     over_pay = Math.Round(over_pay + ostatok * ((double)procent / annual_period), 2);
                     ostatok = Math.Round(ostatok - payment + ostatok * ((double)procent / annual_period), 2);
+                    pay_schedule.Rows.Add(
+                        new string[5] {
+                            date_credit.Value.AddMonths(addMonth * i++).ToString(),
+                            Math.Round(payment,2).ToString(),
+                            Math.Round(ostatok * ((double)procent / annual_period),2).ToString(),
+                            Math.Round((double)credit_sum / all_periods,2).ToString(),
+                            Math.Round(ostatok,2).ToString()
+                        }
+                     );
                 }
                 chart_results.Series.Add("Results");
                 chart_results.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -191,6 +212,16 @@ namespace FinCalc
                 pnl_results.Visible = true;
             }
             else MessageBox.Show("Проверьте корректность введенных данных");
+        }
+
+        private void btn_schedule_Click(object sender, EventArgs e)
+        {
+            pay_schedule.AutoResizeColumns();
+            pay_schedule.AutoSize = true;
+            Form_schedule frm2 = new Form_schedule(pay_schedule);
+            frm2.Height = pay_schedule.Height;
+            frm2.Width = pay_schedule.Width;
+            frm2.Show();
         }
     }
 }
